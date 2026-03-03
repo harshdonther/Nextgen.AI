@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Email Writer - NextGen AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body>
+
+<header>
+    <nav class="glass-nav">
+        <a href="{{ url_for('home') }}" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('ai_ad_copy') }}">Ad Copy</a>
+        <a href="{{ url_for('ai_keyword_ideas') }}">Keyword Ideas</a>
+        <a href="{{ url_for('ai_support_reply') }}">Support Reply</a>
+        <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+            <label class="nav-search" aria-label="Site search">
+            <input type="search" placeholder="Search" />
+            <button type="button" class="search-icon-btn" aria-label="Search">&#9906;</button>
+        </label>
+    </nav>
+</header>
+
+<section class="page-section ai-page">
+    <h1>AI Email Writer</h1>
+    <form method="POST" class="ai-form">
+        <input type="text" name="goal" placeholder="Goal (ex: increase demo bookings)" required>
+        <input type="text" name="audience" placeholder="Audience (ex: SaaS founders)" required>
+        <input type="text" name="offer" placeholder="Offer (ex: Free AI audit)" required>
+        <button type="submit" class="btn-primary">Generate Email</button>
+    </form>
+
+    {% if result %}
+    <div class="result-box">
+        <h3>Subject</h3>
+        <p>{{ result.subject }}</p>
+        <h3>Email Body</h3>
+        <pre class="result-pre">{{ result.body }}</pre>
+    </div>
+    {% endif %}
+</section>
+
+{% include '_footer.html' %}
+
+</body>
+</html>
+
+
+
+
+
+

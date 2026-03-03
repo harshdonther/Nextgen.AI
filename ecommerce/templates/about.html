@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - NextGen AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body>
+
+<header>
+    <nav class="glass-nav">
+        <a href="{{ url_for('home') }}" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('features') }}">Features</a>
+        <a href="{{ url_for('pricing') }}">Pricing</a>
+        {% if 'user_id' in session %}
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="nav-login-btn">Login</a>
+        <a href="{{ url_for('signup') }}" class="btn-outline nav-signup-btn">Sign Up</a>
+        {% endif %}
+        <label class="nav-search" aria-label="Site search">
+            <input type="search" placeholder="Search" />
+            <button type="button" class="search-icon-btn" aria-label="Search">&#9906;</button>
+        </label>
+    </nav>
+</header>
+
+<section class="page-section ai-page">
+    <h1>About NextGen.ai</h1>
+    <p class="mode-note">We build practical AI tools that help students, professionals, and teams move from idea to execution faster.</p>
+    <div class="result-box">
+        <h3>Our Mission</h3>
+        <p>Make powerful AI workflows simple, actionable, and useful in everyday work.</p>
+        <h3>What We Focus On</h3>
+        <ul class="result-list">
+            <li>Clear outputs over hype</li>
+            <li>Fast productivity tools for real tasks</li>
+            <li>Reliable experience with clean design</li>
+        </ul>
+    </div>
+</section>
+
+{% include '_footer.html' %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+

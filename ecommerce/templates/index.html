@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body class="home-page">
+
+<div class="top-banner">AI-powered growth platform for modern teams</div>
+
+<header class="main-header">
+    <nav class="glass-nav">
+        <a href="{{ url_for('home') }}" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <a href="{{ url_for('home') }}" class="active">Home</a>
+        <a href="{{ url_for('features') }}">Features</a>
+        <a href="{{ url_for('pricing') }}">Pricing</a>
+        <a href="{{ url_for('login') }}" class="nav-login-btn">Login</a>
+        <a href="{{ url_for('signup') }}" class="btn-outline nav-signup-btn">Sign Up</a>
+            <label class="nav-search" aria-label="Site search">
+            <input type="search" placeholder="Search" />
+            <button type="button" class="search-icon-btn" aria-label="Search">&#9906;</button>
+        </label>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>
+            Transform Your <span>Marketing</span><br>
+            Strategy with the Power of AI
+        </h1>
+        <div class="hero-rotator" aria-live="polite">
+            <p class="hero-rotator-prefix">Build faster with</p>
+            <div class="hero-rotator-track-wrap">
+                <p id="hero-rotator-track" class="hero-rotator-track">
+                    <span class="hero-rotator-item active">Smart AI Campaigns</span>
+                    <span class="hero-rotator-item">High-Converting Content</span>
+                    <span class="hero-rotator-item">Data-Driven Decisions</span>
+                    <span class="hero-rotator-item">Automation That Saves Time</span>
+                    <span class="hero-rotator-item">Growth Strategies That Scale</span>
+                </p>
+            </div>
+        </div>
+        <p>
+            Boost your campaign performance, increase ROI, and unlock
+            data-driven insights with advanced AI marketing solutions.
+        </p>
+        <a href="{{ url_for('get_started') }}" class="btn-primary">Get Started</a>
+    </div>
+</section>
+
+<section class="home-overview reveal-up">
+    <div class="home-overview-text">
+        <h2>Built for teams that need clear results</h2>
+        <p>
+            NextGen.ai helps you move from idea to execution with less manual effort.
+            Use practical AI workflows to plan campaigns, create better content, and track what works.
+        </p>
+        <ul>
+            <li>Generate campaign copy and messaging in minutes</li>
+            <li>Get structured plans for study, budgets, and productivity</li>
+            <li>Use one dashboard for all your everyday AI tools</li>
+        </ul>
+    </div>
+    <div class="home-overview-image">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Modern AI workspace dashboard">
+    </div>
+</section>
+
+<section class="use-cases">
+    <h2 class="reveal-up">Popular Use Cases</h2>
+    <p class="reveal-up">Simple workflows your team can start using today.</p>
+    <div class="use-case-grid">
+        <article class="use-case-card reveal-up">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Marketing analytics dashboard">
+            <h3>Marketing Growth</h3>
+            <p>Generate ad copy, keyword ideas, and campaign angles quickly.</p>
+        </article>
+        <article class="use-case-card reveal-up">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80" alt="Team meeting productivity">
+            <h3>Team Productivity</h3>
+            <p>Turn rough notes into action plans and clear next steps.</p>
+        </article>
+        <article class="use-case-card reveal-up">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="Student studying with laptop">
+            <h3>Study & Career</h3>
+            <p>Prepare for exams, interviews, and resume updates with structure.</p>
+        </article>
+    </div>
+</section>
+
+<section class="marketing-tools">
+    <h2 class="reveal-up">AI Tools to Build Marketing Content Faster</h2>
+    <p class="reveal-up">Launch campaigns quickly with practical tools built for daily marketing execution.</p>
+    <div class="marketing-tools-grid">
+        <a class="marketing-tool-card reveal-up" href="{{ url_for('ai_ad_copy') }}">
+            <span>Ad Copy Generator</span>
+            <p>Create headline + body + CTA variants in seconds.</p>
+        </a>
+        <a class="marketing-tool-card reveal-up" href="{{ url_for('ai_email_writer') }}">
+            <span>Email Campaign Writer</span>
+            <p>Draft outreach, follow-ups, and launch emails fast.</p>
+        </a>
+        <a class="marketing-tool-card reveal-up" href="{{ url_for('ai_keyword_ideas') }}">
+            <span>SEO Keyword Ideas</span>
+            <p>Generate search intent keywords by niche and location.</p>
+        </a>
+        <a class="marketing-tool-card reveal-up" href="{{ url_for('ai_generic_tool', tool_key='weekly-content-plan') }}">
+            <span>Weekly Content Planner</span>
+            <p>Get a 7-day social content calendar with hooks.</p>
+        </a>
+        <a class="marketing-tool-card reveal-up" href="{{ url_for('ai_generic_tool', tool_key='caption-generator') }}">
+            <span>Caption + Hashtag Builder</span>
+            <p>Write platform-ready captions with brand-aligned tone.</p>
+        </a>
+        <a class="marketing-tool-card reveal-up" href="{{ url_for('ai_chat') }}">
+            <span>AI Marketing Assistant</span>
+            <p>Ask strategy, positioning, and campaign planning questions.</p>
+        </a>
+    </div>
+</section>
+
+<section class="home-stats reveal-up">
+    <div class="stat-box">
+        <h3 class="count-up" data-count-start="1" data-count-target="40" data-count-suffix="K+">1K+</h3>
+        <p>Teams using AI workflows</p>
+    </div>
+    <div class="stat-box">
+        <h3 class="count-up" data-count-start="1" data-count-target="16" data-count-suffix="+">1+</h3>
+        <p>Ready-to-use productivity tools</p>
+    </div>
+    <div class="stat-box">
+        <h3 class="count-up" data-count-start="1" data-count-target="3" data-count-suffix="x">1x</h3>
+        <p>Faster first-draft creation</p>
+    </div>
+    <div class="stat-box">
+        <h3 class="count-up" data-count-start="1" data-count-target="24" data-count-suffix="/7">1/7</h3>
+        <p>Always-available AI assistant</p>
+    </div>
+</section>
+
+<section class="how-it-works">
+    <h2 class="reveal-up">How It Works</h2>
+    <p class="reveal-up">A simple process to go from idea to execution.</p>
+    <div class="steps-grid">
+        <article class="step-card reveal-up">
+            <span>01</span>
+            <h3>Choose a Tool</h3>
+            <p>Select the feature you need: content, planning, support, or strategy.</p>
+        </article>
+        <article class="step-card reveal-up">
+            <span>02</span>
+            <h3>Add Context</h3>
+            <p>Enter your goals, audience, and constraints in a few quick inputs.</p>
+        </article>
+        <article class="step-card reveal-up">
+            <span>03</span>
+            <h3>Get Actionable Output</h3>
+            <p>Receive structured output you can directly use, edit, and ship.</p>
+        </article>
+    </div>
+</section>
+
+<section class="ai-showcase">
+    <h2>AI Visual Showcase</h2>
+    <p>See how modern AI transforms campaigns, analytics, and creative production.</p>
+    <div class="image-grid">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80" alt="Futuristic AI face illustration">
+        <img src="https://picsum.photos/id/1044/900/600" alt="AI data dashboard hologram">
+        <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?auto=format&fit=crop&w=900&q=80" alt="Robotic hand touching digital interface">
+        <img src="https://picsum.photos/id/180/900/600" alt="AI abstract network background">
+        <img src="https://picsum.photos/id/20/900/600" alt="AI control center visuals">
+        <img src="https://picsum.photos/id/96/900/600" alt="Digital AI intelligence concept">
+    </div>
+</section>
+
+<section class="home-gallery">
+    <h2 class="reveal-up">Explore What You Can Build</h2>
+    <p class="reveal-up">Click any card to jump into a feature and start creating.</p>
+    <div class="gallery-grid">
+        <a class="gallery-card reveal-up" href="{{ url_for('get_started') }}">
+            <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80" alt="AI workspace and laptop">
+            <div class="gallery-content">
+                <h3>Launch Faster</h3>
+                <p>Start with guided workflows and generate first drafts in minutes.</p>
+                <span>Open Get Started</span>
+            </div>
+        </a>
+        <a class="gallery-card reveal-up" href="{{ url_for('features') }}">
+            <img src="https://images.unsplash.com/photo-1551281044-8e5f2f3f8f9f?auto=format&fit=crop&w=1200&q=80" alt="Analytics dashboard charts">
+            <div class="gallery-content">
+                <h3>Analyze Smarter</h3>
+                <p>Turn raw data into actions with practical, clear recommendations.</p>
+                <span>View Features</span>
+            </div>
+        </a>
+        <a class="gallery-card reveal-up" href="{{ url_for('pricing') }}">
+            <img src="https://images.unsplash.com/photo-1551836022-8b2858c9c69b?auto=format&fit=crop&w=1200&q=80" alt="Team collaborating in office">
+            <div class="gallery-content">
+                <h3>Scale with Team</h3>
+                <p>Choose a plan that fits individuals, startups, or larger teams.</p>
+                <span>Check Pricing</span>
+            </div>
+        </a>
+        <a class="gallery-card reveal-up" href="{{ url_for('signup') }}">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" alt="Creative team planning session">
+            <div class="gallery-content">
+                <h3>Join NextGen.ai</h3>
+                <p>Create your account and access all tools in one modern dashboard.</p>
+                <span>Create Account</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2 class="reveal-up">What Users Say</h2>
+    <div class="testimonial-grid">
+        <article class="testimonial-card reveal-up">
+            <p>"We now build campaign drafts in minutes instead of hours."</p>
+            <h4>Riya Sharma</h4>
+            <span>Growth Manager</span>
+        </article>
+        <article class="testimonial-card reveal-up">
+            <p>"The study and planning tools are practical, clean, and easy to apply."</p>
+            <h4>Arjun Patel</h4>
+            <span>Student & Freelancer</span>
+        </article>
+        <article class="testimonial-card reveal-up">
+            <p>"The support reply and email writer improved our response quality instantly."</p>
+            <h4>Nikita Rao</h4>
+            <span>Customer Success Lead</span>
+        </article>
+    </div>
+</section>
+
+<section class="faq-section">
+    <h2 class="reveal-up">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+        <article class="faq-item reveal-up">
+            <h3>Do I need technical skills to use these tools?</h3>
+            <p>No. Most tools work with simple text inputs and guided forms.</p>
+        </article>
+        <article class="faq-item reveal-up">
+            <h3>Can I use the output directly?</h3>
+            <p>Yes. Outputs are designed to be editable and production-ready.</p>
+        </article>
+        <article class="faq-item reveal-up">
+            <h3>Is this useful for teams and individuals?</h3>
+            <p>Yes. The platform supports both personal workflows and team operations.</p>
+        </article>
+    </div>
+</section>
+
+<section class="integrations-section">
+    <h2 class="reveal-up">Works With Your Existing Stack</h2>
+    <p class="reveal-up">Connect planning, content, and execution without changing your full workflow.</p>
+    <div class="integration-grid">
+        <article class="integration-card reveal-up">
+            <h3>Marketing</h3>
+            <p>Ad platforms, email tools, analytics dashboards, and CRM sync-ready workflows.</p>
+        </article>
+        <article class="integration-card reveal-up">
+            <h3>Team Ops</h3>
+            <p>Turn meeting notes into tasks and share execution plans with role-wise owners.</p>
+        </article>
+        <article class="integration-card reveal-up">
+            <h3>Personal Tools</h3>
+            <p>Study plans, budgets, and productivity systems in one guided dashboard.</p>
+        </article>
+    </div>
+</section>
+
+<section class="comparison-section">
+    <h2 class="reveal-up">Why Teams Choose NextGen.ai</h2>
+    <div class="comparison-table reveal-up">
+        <div class="compare-head">Feature</div>
+        <div class="compare-head">Traditional Workflow</div>
+        <div class="compare-head">NextGen.ai Workflow</div>
+
+        <div>Time to first draft</div>
+        <div>Manual and slow</div>
+        <div>Fast AI-assisted output</div>
+
+        <div>Consistency</div>
+        <div>Depends on individual style</div>
+        <div>Structured, repeatable format</div>
+
+        <div>Execution clarity</div>
+        <div>Scattered notes and tasks</div>
+        <div>Action-ready steps and priorities</div>
+    </div>
+</section>
+
+<section class="home-cta-banner reveal-up">
+    <div>
+        <h2>Start Building Faster With Practical AI</h2>
+        <p>Use prebuilt tools for marketing, study, communication, and planning today.</p>
+    </div>
+    <a href="{{ url_for('signup') }}" class="btn-primary">Create Free Account</a>
+</section>
+
+<section class="brands">
+    <h3>Trusted by 40,000+ Companies</h3>
+    <div class="brand-logos">
+        <span>Spotify</span>
+        <span>Allianz</span>
+        <span>L'Oreal</span>
+        <span>Kellogg's</span>
+        <span>Netflix</span>
+    </div>
+</section>
+
+{% include '_footer.html' %}
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+

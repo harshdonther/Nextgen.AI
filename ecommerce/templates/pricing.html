@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing - NextGen AI</title>
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body>
+
+<header>
+    <nav class="glass-nav">
+        <a href="{{ url_for('home') }}" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('features') }}">Features</a>
+        <a href="{{ url_for('pricing') }}" class="active">Pricing</a>
+        <a href="{{ url_for('login') }}" class="nav-login-btn">Login</a>
+        <a href="{{ url_for('signup') }}" class="nav-signup-btn">Sign Up</a>
+            <label class="nav-search" aria-label="Site search">
+            <input type="search" placeholder="Search" />
+            <button type="button" class="search-icon-btn" aria-label="Search">&#9906;</button>
+        </label>
+    </nav>
+</header>
+
+<section class="page-section">
+    <h1>Simple Pricing</h1>
+
+    <div class="pricing-grid">
+        <div class="card">
+            <h3>Starter</h3>
+            <p>$19/month</p>
+        </div>
+
+        <div class="card highlight">
+            <h3>Pro</h3>
+            <p>$49/month</p>
+        </div>
+
+        <div class="card">
+            <h3>Enterprise</h3>
+            <p>Custom Pricing</p>
+        </div>
+    </div>
+</section>
+
+{% include '_footer.html' %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

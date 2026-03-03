@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NextGen AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body class="dashboard-page">
+
+<header>
+    <nav class="glass-nav">
+        <a href="{{ url_for('home') }}" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('features') }}">Features</a>
+        <a href="{{ url_for('pricing') }}">Pricing</a>
+        <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+            <label class="nav-search" aria-label="Site search">
+            <input type="search" placeholder="Search" />
+            <button type="button" class="search-icon-btn" aria-label="Search">&#9906;</button>
+        </label>
+    </nav>
+</header>
+
+<section class="page-section dashboard-shell">
+    <div class="dashboard-hero-wrap reveal-up">
+        <div class="dashboard-hero-left">
+            <p class="dashboard-tag">Smart workspace</p>
+            <h1>Welcome back, {{ user_name }}</h1>
+            <p class="dashboard-subtext">
+                You are logged in as {{ user_email }}. Pick a tool and move from idea to output in minutes.
+            </p>
+            <div class="dashboard-kpis">
+                <div class="kpi-card">
+                    <span>16+</span>
+                    <p>AI workflows</p>
+                </div>
+                <div class="kpi-card">
+                    <span>Fast</span>
+                    <p>Ready-to-use templates</p>
+                </div>
+                <div class="kpi-card">
+                    <span>Live</span>
+                    <p>Interactive assistant</p>
+                </div>
+            </div>
+            <p id="login-status-toast" class="login-status-toast">{{ user_name }} is login</p>
+        </div>
+        <div class="dashboard-hero-right">
+            <div class="hero-image-card card-large">
+                <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=1200&q=80" alt="AI dashboard visual">
+            </div>
+            <div class="hero-image-card card-small">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=900&q=80" alt="Code and analytics screen">
+            </div>
+        </div>
+    </div>
+
+    <div class="featured-strip reveal-up">
+        <a class="featured-tile" href="{{ url_for('ai_chat') }}">
+            <img src="https://images.unsplash.com/photo-1682687982501-1e58ab814714?auto=format&fit=crop&w=1000&q=80" alt="AI chat">
+            <div><h3>AI Chat Assistant</h3><p>Brainstorm, plan, and execute faster.</p></div>
+        </a>
+        <a class="featured-tile" href="{{ url_for('ai_ad_copy') }}">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Ad strategy">
+            <div><h3>Ad Copy Studio</h3><p>Create hooks, angles, and CTA in seconds.</p></div>
+        </a>
+        <a class="featured-tile" href="{{ url_for('ai_exam_prep') }}">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1000&q=80" alt="Study planning">
+            <div><h3>Exam Prep Booster</h3><p>Build topic priorities and mock questions.</p></div>
+        </a>
+    </div>
+
+    <div class="dashboard-gallery reveal-up">
+        <a class="dashboard-gallery-card" href="{{ url_for('ai_email_writer') }}">
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1100&q=80" alt="Data stream visual">
+            <div class="dashboard-gallery-content">
+                <h3>Email Studio</h3>
+                <p>Generate polished outreach emails with strong structure and tone.</p>
+            </div>
+        </a>
+        <a class="dashboard-gallery-card" href="{{ url_for('ai_keyword_ideas') }}">
+            <img src="https://images.unsplash.com/photo-1551281044-8e5f2f3f8f9f?auto=format&fit=crop&w=1100&q=80" alt="SEO analytics charts">
+            <div class="dashboard-gallery-content">
+                <h3>SEO Radar</h3>
+                <p>Find keyword opportunities and build visibility-focused content plans.</p>
+            </div>
+        </a>
+        <a class="dashboard-gallery-card" href="{{ url_for('ai_support_reply') }}">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=80" alt="Team support desk">
+            <div class="dashboard-gallery-content">
+                <h3>Support Replies</h3>
+                <p>Draft empathetic customer replies that are clear and action-oriented.</p>
+            </div>
+        </a>
+        <a class="dashboard-gallery-card" href="{{ url_for('ai_generic_tool', tool_key='proposal-writer') }}">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1100&q=80" alt="Business proposal planning">
+            <div class="dashboard-gallery-content">
+                <h3>Proposal Builder</h3>
+                <p>Create structured project proposals with scope, timeline, and outcomes.</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="tool-explorer reveal-up">
+        <div>
+            <h2>Explore Tools</h2>
+            <p>Search by name, use case, or output type.</p>
+        </div>
+        <div class="tool-explorer-search">
+            <input id="tool-search" type="text" placeholder="Search tools (e.g., interview, budget, proposal)">
+            <span id="tool-count">20 tools</span>
+        </div>
+    </div>
+
+    <div class="tool-grid" id="tool-grid">
+        <div class="tool-card reveal-up" data-tool="ai chat assistant productivity planning ideas"><h3>AI Chat Assistant</h3><p>Ask anything and get guided responses like a chat assistant.</p><a href="{{ url_for('ai_chat') }}" class="btn-primary">Open Chat</a></div>
+        <div class="tool-card reveal-up" data-tool="ad copy marketing campaign headline cta"><h3>AI Ad Copy</h3><p>Generate headlines, ad text, and CTA for campaigns.</p><a href="{{ url_for('ai_ad_copy') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="email writer outreach communication offer"><h3>AI Email Writer</h3><p>Create ready-to-send outreach emails in one click.</p><a href="{{ url_for('ai_email_writer') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="keyword seo search ranking"><h3>AI Keyword Ideas</h3><p>Get SEO keyword suggestions for your niche.</p><a href="{{ url_for('ai_keyword_ideas') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="support reply customer service"><h3>AI Support Reply</h3><p>Draft empathetic replies for customer messages.</p><a href="{{ url_for('ai_support_reply') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="exam prep study syllabus questions"><h3>AI Exam Prep</h3><p>Share syllabus and get priority topics + practice questions.</p><a href="{{ url_for('ai_exam_prep') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="resume bullets job cv"><h3>Resume Bullet Generator</h3><p>Create impactful resume points from your work details.</p><a href="{{ url_for('ai_generic_tool', tool_key='resume-bullets') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="study planner timetable schedule"><h3>Study Planner</h3><p>Build a weekly schedule from your subjects and time.</p><a href="{{ url_for('ai_generic_tool', tool_key='study-planner') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="budget finance savings expenses"><h3>Budget Planner</h3><p>Plan monthly spending and savings clearly.</p><a href="{{ url_for('ai_generic_tool', tool_key='budget-planner') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="meal diet nutrition plan"><h3>Meal Planner</h3><p>Generate a practical daily meal outline.</p><a href="{{ url_for('ai_generic_tool', tool_key='meal-planner') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="workout fitness gym routine"><h3>Workout Builder</h3><p>Create a weekly workout split by goal.</p><a href="{{ url_for('ai_generic_tool', tool_key='workout-builder') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="trip itinerary travel"><h3>Trip Itinerary Planner</h3><p>Get a day-wise trip plan based on destination.</p><a href="{{ url_for('ai_generic_tool', tool_key='trip-planner') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="meeting notes summary action items"><h3>Meeting Notes Organizer</h3><p>Convert rough notes into summary and actions.</p><a href="{{ url_for('ai_generic_tool', tool_key='meeting-notes') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="code explainer programming debug"><h3>Code Explainer</h3><p>Understand code snippets in plain language.</p><a href="{{ url_for('ai_generic_tool', tool_key='code-explainer') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="caption social media hashtags"><h3>Social Caption Generator</h3><p>Create captions and hashtags for your posts.</p><a href="{{ url_for('ai_generic_tool', tool_key='caption-generator') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="habit coach consistency routine"><h3>Habit Coach</h3><p>Create a 21-day habit consistency plan.</p><a href="{{ url_for('ai_generic_tool', tool_key='habit-coach') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="swot analyzer business strategy"><h3>SWOT Analyzer</h3><p>Map strengths, weaknesses, opportunities, and threats.</p><a href="{{ url_for('ai_generic_tool', tool_key='swot-analyzer') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="proposal writer client scope timeline"><h3>Client Proposal Writer</h3><p>Create structured proposals with scope and phases.</p><a href="{{ url_for('ai_generic_tool', tool_key='proposal-writer') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="interview coach preparation questions"><h3>Interview Coach</h3><p>Practice role-specific questions with answer frameworks.</p><a href="{{ url_for('ai_generic_tool', tool_key='interview-coach') }}" class="btn-primary">Open Tool</a></div>
+        <div class="tool-card reveal-up" data-tool="content planner social weekly calendar"><h3>Weekly Content Planner</h3><p>Generate a 7-day content calendar with hooks and post ideas.</p><a href="{{ url_for('ai_generic_tool', tool_key='weekly-content-plan') }}" class="btn-primary">Open Tool</a></div>
+    </div>
+    <p id="tool-empty-state" class="tool-empty-state" hidden>No matching tools. Try another keyword.</p>
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% include '_footer.html' %}
+
+</body>
+</html>
+
+
+
+
+
+

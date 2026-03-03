@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Assistant - NextGen AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body>
+
+<header>
+    <nav class="glass-nav">
+        <a href="{{ url_for('home') }}" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('ai_exam_prep') }}">Exam Prep</a>
+        <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+            <label class="nav-search" aria-label="Site search">
+            <input type="search" placeholder="Search" />
+            <button type="button" class="search-icon-btn" aria-label="Search">&#9906;</button>
+        </label>
+    </nav>
+</header>
+
+<section class="page-section ai-page ai-chat-shell">
+    <div class="ai-chat-head">
+        <h1>AI Assistant</h1>
+    </div>
+
+    <div id="chat-scroll" class="chat-box solo-chat-box">
+        {% if history %}
+            {% for msg in history %}
+            <article class="chat-row {{ msg.role }}">
+                <div class="chat-avatar">{{ "Y" if msg.role == "user" else "AI" }}</div>
+                <div class="chat-bubble">
+                    <p class="chat-label">{{ "You" if msg.role == "user" else "Assistant" }}</p>
+                    <p>{{ msg.content }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        {% else %}
+            <article class="chat-row assistant">
+                <div class="chat-avatar">AI</div>
+                <div class="chat-bubble">
+                    <p class="chat-label">Assistant</p>
+                    <p>Ask anything. I can help you draft, improve writing, plan tasks, and solve problems.</p>
+                </div>
+            </article>
+        {% endif %}
+    </div>
+
+    <form method="POST" class="ai-form solo-chat-form" id="ai-chat-form">
+        <button type="button" class="chat-plus-btn" aria-label="Add">+</button>
+        <textarea id="chat-input" name="message" rows="1" placeholder="Ask anything" required></textarea>
+        <button type="submit" class="chat-send-btn">Send</button>
+    </form>
+</section>
+
+{% include '_footer.html' %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
+
+
+
+
+

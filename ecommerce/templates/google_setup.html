@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Setup - NextGen AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <a href="{{ url_for('login') }}" class="back-arrow" aria-label="Back to Login">&#8592;</a>
+        <a href="{{ url_for('home') }}" class="auth-brand" aria-label="Go to home">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <h2>Google Login Setup</h2>
+        <p>Enter your Google OAuth credentials once for this browser session.</p>
+
+        {% if error %}
+        <p class="auth-message auth-error">{{ error }}</p>
+        {% endif %}
+
+        <p class="auth-message auth-success">Authorized redirect URI to add in Google Cloud: {{ suggested_redirect }}</p>
+
+        <form action="{{ url_for('google_setup') }}" method="POST">
+            <input type="text" name="client_id" placeholder="Google Client ID" required>
+            <input type="password" name="client_secret" placeholder="Google Client Secret" required>
+            <button type="submit">Save and Continue with Google</button>
+        </form>
+    </div>
+</div>
+
+{% include '_footer.html' %}
+
+</body>
+</html>
+
+
+
+

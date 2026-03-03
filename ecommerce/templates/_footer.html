@@ -1,0 +1,52 @@
+<section class="global-data-strip">
+    <div class="data-strip-card reveal-up">
+        <span>4.2x</span>
+        <p>Avg content production speed increase</p>
+    </div>
+    <div class="data-strip-card reveal-up">
+        <span>63%</span>
+        <p>Faster first-draft campaign delivery</p>
+    </div>
+    <div class="data-strip-card reveal-up">
+        <span>18+</span>
+        <p>Ready-to-use AI tools for growth teams</p>
+    </div>
+    <div class="data-strip-card reveal-up">
+        <span>24/7</span>
+        <p>Always-available assistant for marketing tasks</p>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="footer-content">
+        <div class="footer-brand-block">
+            <a href="{{ url_for('home') }}" class="footer-brand">
+                <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+                <span>NextGen.ai</span>
+            </a>
+            <p>Smart AI tools for planning, creation, and execution with practical outcomes.</p>
+        </div>
+        <div class="footer-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('features') }}">Features</a>
+            <a href="{{ url_for('pricing') }}">Pricing</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact Us</a>
+            {% if 'user_id' in session %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </div>
+        <div class="footer-badge">Built for modern teams</div>
+    </div>
+    <p class="footer-copy">&copy; 2026 NextGen.ai | All Rights Reserved</p>
+</footer>
+{% if request.endpoint in ['home', 'home_alias'] %}
+<p class="site-credit">Created by Harsh Kumar</p>
+{% endif %}
+
+
+
+

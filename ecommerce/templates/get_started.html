@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - NextGen AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body>
+
+<div class="top-banner">AI-powered growth platform for modern teams</div>
+
+<header class="main-header">
+    <nav class="glass-nav">
+        <a href="{{ url_for('home') }}" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('features') }}">Features</a>
+        <a href="{{ url_for('pricing') }}">Pricing</a>
+        {% if logged_in %}
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}" class="btn-outline">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="nav-login-btn">Login</a>
+        <a href="{{ url_for('signup') }}" class="btn-outline nav-signup-btn">Sign Up</a>
+        {% endif %}
+            <label class="nav-search" aria-label="Site search">
+            <input type="search" placeholder="Search" />
+            <button type="button" class="search-icon-btn" aria-label="Search">&#9906;</button>
+        </label>
+    </nav>
+</header>
+
+<section class="page-section get-started-page">
+    <h1>Start Your AI Journey</h1>
+
+    <div class="ai-slider-section">
+        <div class="ai-slider-window">
+            <div class="auto-slider-track" data-interval="5000">
+                <div class="auto-slide"><img src="https://picsum.photos/id/180/1600/900" alt="AI visualization 1"></div>
+                <div class="auto-slide"><img src="https://picsum.photos/id/20/1600/900" alt="AI visualization 2"></div>
+                <div class="auto-slide"><img src="https://picsum.photos/id/26/1600/900" alt="AI visualization 3"></div>
+                <div class="auto-slide"><img src="https://picsum.photos/id/48/1600/900" alt="AI visualization 4"></div>
+                <div class="auto-slide"><img src="https://picsum.photos/id/96/1600/900" alt="AI visualization 5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="get-started-actions">
+        {% if logged_in %}
+        <a href="{{ url_for('dashboard') }}" class="btn-primary">Go to Dashboard</a>
+        {% else %}
+        <a href="{{ url_for('signup') }}" class="btn-primary">Create Account</a>
+        <a href="{{ url_for('login') }}" class="btn-outline cta-login-btn">Login</a>
+        {% endif %}
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% include '_footer.html' %}
+
+</body>
+</html>
+
+
+
+
+
+

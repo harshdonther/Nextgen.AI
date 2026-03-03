@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features - NextGen AI</title>
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+</head>
+<body class="features-page">
+
+<header>
+    <nav class="glass-nav">
+        <a href="{{ url_for('home') }}" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('features') }}" class="active">Features</a>
+        <a href="{{ url_for('pricing') }}">Pricing</a>
+        <a href="{{ url_for('login') }}" class="nav-login-btn">Login</a>
+        <a href="{{ url_for('signup') }}" class="nav-signup-btn">Sign Up</a>
+            <label class="nav-search" aria-label="Site search">
+            <input type="search" placeholder="Search" />
+            <button type="button" class="search-icon-btn" aria-label="Search">&#9906;</button>
+        </label>
+    </nav>
+</header>
+
+<section class="page-section features-hero">
+    <p class="features-kicker reveal-up">Trending in 2026</p>
+    <h1 class="reveal-up">AI Features Built for Speed, Personalization, and ROI</h1>
+    <p class="features-intro reveal-up">
+        Launch campaigns faster, automate repetitive work, and get clearer decisions from live data.
+        Every feature is designed for practical outcomes, not vanity metrics.
+    </p>
+    <div class="features-badges reveal-up">
+        <span>Agent workflows</span>
+        <span>AI copilots</span>
+        <span>Smart automation</span>
+        <span>Live analytics</span>
+    </div>
+</section>
+
+<section class="page-section feature-stack">
+    <div class="feature-grid">
+        <article class="card reveal-up feature-card-lg">
+            <h3>Autonomous Campaign Builder</h3>
+            <p>Create multi-channel campaign drafts from a single brief, including headlines, offers, and CTA variations.</p>
+            <ul>
+                <li>Auto-generates ad angle options</li>
+                <li>Outputs channel-wise versions</li>
+                <li>Suggests experiment hypotheses</li>
+            </ul>
+        </article>
+
+        <article class="card reveal-up">
+            <h3>Predictive Audience Scoring</h3>
+            <p>Prioritizes high-intent users based on behavior patterns and engagement quality.</p>
+        </article>
+
+        <article class="card reveal-up">
+            <h3>Realtime Insight Stream</h3>
+            <p>Monitors campaign movements and highlights sudden performance shifts instantly.</p>
+        </article>
+
+        <article class="card reveal-up">
+            <h3>AI Content Repurposer</h3>
+            <p>Turns one long-form idea into posts, email snippets, and ad creatives in one workflow.</p>
+        </article>
+
+        <article class="card reveal-up">
+            <h3>Conversion Leak Finder</h3>
+            <p>Detects bottlenecks in your funnel and recommends high-impact fixes with priority order.</p>
+        </article>
+
+        <article class="card reveal-up">
+            <h3>Smart Team Assist</h3>
+            <p>Generates action lists for marketing, sales, and support from shared business goals.</p>
+        </article>
+    </div>
+</section>
+
+<section class="page-section trend-section">
+    <h2 class="reveal-up">What Growing Teams Use Most</h2>
+    <div class="trend-timeline">
+        <div class="trend-item reveal-up">
+            <span class="trend-dot"></span>
+            <h4>AI Agent Chains</h4>
+            <p>Automate end-to-end tasks from research to execution.</p>
+        </div>
+        <div class="trend-item reveal-up">
+            <span class="trend-dot"></span>
+            <h4>Hyper-Personalized Messaging</h4>
+            <p>Serve tailored copy variants by audience segment and behavior.</p>
+        </div>
+        <div class="trend-item reveal-up">
+            <span class="trend-dot"></span>
+            <h4>Realtime Decision Dashboards</h4>
+            <p>Use live metrics to shift budget and strategy faster.</p>
+        </div>
+        <div class="trend-item reveal-up">
+            <span class="trend-dot"></span>
+            <h4>Human + AI Collaboration</h4>
+            <p>Keep human review loops while scaling output quality.</p>
+        </div>
+    </div>
+</section>
+
+<section class="page-section feature-cta reveal-up">
+    <h2>Ready to Scale with Smarter Automation?</h2>
+    <p>Start with ready-to-use AI tools and expand into advanced workflows as you grow.</p>
+    <a href="{{ url_for('get_started') }}" class="btn-primary">Start Free</a>
+</section>
+
+{% include '_footer.html' %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

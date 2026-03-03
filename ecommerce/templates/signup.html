@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - NextGen AI</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='nextgenai-logo.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=css_version) }}">
+    
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <a href="{{ url_for('home') }}" class="back-arrow" aria-label="Back to Home">&#8592;</a>
+        <a href="{{ url_for('home') }}" class="auth-brand" aria-label="Go to home">
+            <img src="{{ url_for('static', filename='nextgenai-logo.svg') }}" alt="NextGen AI logo">
+            <span>NextGen.ai</span>
+        </a>
+        <h2>Create Account</h2>
+        <p>Join NextGen AI and transform your marketing 🚀</p>
+
+    <form action="/register" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Sign Up</button>
+</form>
+
+        <div class="divider">OR</div>
+
+        <a class="social-btn google social-link" href="{{ url_for('google_start') }}">Continue with Google</a>
+        <button class="social-btn github" type="button" disabled>Continue with GitHub</button>
+
+        <p class="login-link">
+            Already have an account? <a href="{{ url_for('login') }}">Login</a>
+        </p>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% include '_footer.html' %}
+
+</body>
+</html>
+
+
+
+
+
+
